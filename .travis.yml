@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - "iojs"
+sudo: false
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
+before_deploy:
+  - npm run release-travis
+deploy:
+  provider: releases
+  all_braches: true
+  skip_cleanup: true
+  api_key:
+    secure: OfUZkFsmeZzgIV+L3/B787TnhW+Wqxf8Sk/hsZ1oU4MGfE1M/RZWHLWJuRRJESwshivCaMbCJ7iqtE6MQEBZmjHX95HWm3TLeEqf5TL1uOEkH6tonlFhvblYPthfCJIOJ/E19dCjX8ePfpuL7AqtzVzY4pgtbT8yOe7BM+SpW7OMKuESFsHjJcIR21kbBADvR/prwqqMjCwhldlyKDyqxV1I2/3fURt61tL9RPJH83T6BkkETMa72SLvDTwLoM12EaUWUEnmUA8c9a8O6yOLSRNjbyVZfD9E/p9EZMpIwDq14hsS9fbn5KdsmOBS7mjBQzNcDdKUwc7GGhmLfwSgOiz/4BRFYNMwPZPGuWLRUjc+8O75Ell52n5HHHcyF4Q1qHvgPFPhgCXKKbK9/ocgOjeSgtW/Um3kJGbjD79NkS+yOSq95U5BBNd5B53SWtfp7zBpMJVVETBg1c/8nfwGwqxcD3lSlCwdI7leDeNMfEskJhj1JnwiUpIiWqW+47uAjKJjrtQp9D1omBStiu/DQnrd51X5p/Zw91xQRZVSWwEnHfY7kJKi64zQpUYhJSrFexHy5zPRhqwyqLYv2hXASbN+UOEcg0u0/Y8KeNmYrLwplqK4MNwlsSVAnaaOqjO/hZKfEEaIBJB/BQ8GTA8Q4qyJ6ldlNLS1cgiCD93Brd0=
+  file:
+    - releases/minify-image-win-x86_64.zip
+    - releases/minify-image-osx-x86_64.zip
+    - releases/minify-image-linux-x86_64.zip
+  on:
+    repo: tsukurite/minify-image
+    tags: true

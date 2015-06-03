@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+html, body, #minify-image {
+	background-color: #e8edee;
+	min-height: 100%;
+}
+
+body {
+	cursor: default;
+	font-family:
+		"ヒラギノ丸ゴ Std", "Hiragino Maru Gothic Std",
+		"ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro",
+		"メイリオ", Meiryo,
+		"游ゴシック", "Yu Gothic", YuGothic,
+		sans-serif;
+	margin: 0;
+}
+
+::selection {
+	background-color: transparent;
+}

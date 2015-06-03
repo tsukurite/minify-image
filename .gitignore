@@ -1,0 +1,14 @@
+# node.js
+npm-debug.log
+node_modules/
+
+# main process
+main/*.js
+
+# renderer process
+renderer/*.css
+renderer/*.html
+renderer/*.js
+
+# release files
+releases/

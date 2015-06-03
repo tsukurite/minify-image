@@ -1,0 +1,28 @@
+env:
+  browser: true
+  es6: true
+  node: true
+
+ecmaFeatures:
+  jsx: true
+
+globals:
+  log: true
+
+plugins:
+  - react
+
+rules:
+  comma-dangle: always
+  no-unused-expressions: false
+  no-unused-vars:
+    - 2
+    - vars: all
+      args: none
+  quotes:
+    - 2
+    - single
+    - avoid-escape
+  strict: false
+
+# vim:ft=yaml:
