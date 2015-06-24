@@ -57,13 +57,12 @@ function parallelDownload(vendorDirPaths) {
 /**
  * remove downloaded binaries and download binaries for target platform
  *
- * @param {String} platform
- * @param {String} releasesDir
+ * @param {String} releaseDir
  * @param {Promise}
  */
-function setupBinaries(platform, releasesDir) {
+function setupBinaries(releaseDir) {
   return co(function*() {
-    var vendorDirGlob = `${releasesDir}/${platform}/**/vendor`,
+    var vendorDirGlob = `${releaseDir}/**/vendor`,
         vendorDirs = yield thunkify(glob).call(glob, vendorDirGlob);
 
     // remove installed module's binaries
@@ -180,23 +179,21 @@ co(function*() {
   var processFaker = new ProcessFaker();
 
   try {
-    let platforms = ['win32', 'linux', 'darwin'];
-
     // fake process.arch
     processFaker.fake('arch', { value: options.arch });
 
-    for (let i = 0, len = platforms.length; i < len; ++i) {
-      // fake process.platform
-      processFaker.fake('platform', { value: platforms[i] });
+    // fake process.platform
+    processFaker.fake('platform', { value: 'win32' });
+    yield setupBinaries(
+      path.normalize(`${RELEASES_DIR}/minify-image-win-x86_64`));
 
-      console.log(`downloading ${platforms[i]} imagemin binaries`);
+    processFaker.fake('platform', { value: 'linux' });
+    yield setupBinaries(
+      path.normalize(`${RELEASES_DIR}/minify-image-linux-x86_64`));
 
-      // remove downloaded binaries,
-      // and download to binaries for target platform
-      yield setupBinaries(platforms[i], RELEASES_DIR);
-
-      console.log(`downloaded ${platforms[i]} imagemin binaries`);
-    }
+    processFaker.fake('platform', { value: 'darwin' });
+    yield setupBinaries(
+      path.normalize(`${RELEASES_DIR}/minify-image-osx-x86_64`));
   } finally {
     // revert faked properties
     processFaker.unfake('arch');
