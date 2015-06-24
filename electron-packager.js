@@ -139,6 +139,11 @@ co(function*() {
       'renderer/dispatcher',
       'renderer/stores',
 
+      // text files
+      'LICENSE$',
+      'README\.md$',
+      'HISTORY\.md$',
+
       // this file
       path.basename(__filename),
 
