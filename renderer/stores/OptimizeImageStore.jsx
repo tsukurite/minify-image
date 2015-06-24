@@ -102,7 +102,7 @@ function optimizeImage(files) {
       OptimizeImageStore.emitFinish();
     })
     .catch(function(err) {
-      log(err);
+      console.error(err);
       OptimizeImageStore.emitFailure();
       OptimizeImageStore.emitFinish();
     });
