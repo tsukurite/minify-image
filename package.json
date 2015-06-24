@@ -3,7 +3,7 @@
   "main": "./main",
   "private": true,
   "scripts": {
-    "clean": "rimraf ./main/*.js ./renderer/*.{css,html,js} ./releases/*",
+    "clean": "rimraf ./main/*.js ./renderer/*.{css,html,js} ./releases",
     "dev": "npm ru gulp & npm ru webpack -- --debug --watch --devtool inline-source-map",
     "gulp": "gulp --require coffee-script/register",
     "lint": "eslint --ext .jsx .",
