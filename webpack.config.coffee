@@ -4,6 +4,8 @@ module.exports =
 
   context: __dirname
 
+  target: 'atom'
+
   entry:
     index: './renderer/index.jsx'
     bundle: [
