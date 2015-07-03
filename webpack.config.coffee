@@ -4,8 +4,6 @@ module.exports =
 
   context: __dirname
 
-  target: 'atom'
-
   entry:
     index: './renderer/index.jsx'
     bundle: [
@@ -29,9 +27,12 @@ module.exports =
       { test: /\.jsx$/, exclude: /bower_components|node_modules/, loader: 'babel?stage=0&blacklist[]=regenerator' }
       { test: /\.png$/, exclude: /bower_components|node_modules/, loader: 'url' }
     ]
-    noParse: [
-      /ipc-promise/
-    ]
+
+  externals: [
+    'ipc': 'require("ipc")'
+    'remote': 'require("remote")'
+    'web-frame': 'require("web-frame")'
+  ]
 
   resolve:
     extensions: [

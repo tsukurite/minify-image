@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 
   div: {
     bottom: '0',
@@ -58,4 +58,4 @@ module.exports = {
     margin: '1rem 0',
   },
 
-};
+}

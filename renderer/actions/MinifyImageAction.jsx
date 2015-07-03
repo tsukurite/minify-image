@@ -1,9 +1,7 @@
-let dispatcher = require('../dispatcher'),
-    MinifyImageConstants = require('../constants/MinifyImageConstants');
+import dispatcher from '../dispatcher';
+import { ActionTypes as MinifyImageActionTypes } from '../constants/MinifyImageConstants';
 
-let MinifyImageActionTypes = MinifyImageConstants.ActionTypes;
-
-let MinifyImageAction = {
+export default {
 
   /**
    * @private
@@ -17,5 +15,3 @@ let MinifyImageAction = {
   },
 
 };
-
-module.exports = MinifyImageAction;

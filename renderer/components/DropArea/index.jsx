@@ -1,12 +1,12 @@
-let React = require('react'),
-    Radium = require('radium');
+import React from 'react';
+import Radium from 'radium';
 
-let DropAreaAction = require('../../actions/DropAreaAction');
+import DropAreaAction from '../../actions/DropAreaAction';
 
-let CSS = require('./css'),
-    RES = require('./res');
+import CSS from './css';
+import RES from './res';
 
-let DropArea = React.createClass(Radium.wrap({
+export default React.createClass(Radium.wrap({
 
   /**
    * @private
@@ -57,6 +57,4 @@ let DropArea = React.createClass(Radium.wrap({
     );
   },
 
-}));
-
-module.exports = DropArea;
+}))

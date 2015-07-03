@@ -1,10 +1,10 @@
-let React = require('react'),
-    Radium = require('radium');
+import React from 'react';
+import Radium from 'radium';
 
-let CSS = require('./css'),
-    RES = require('./res');
+import CSS from './css';
+import RES from './res';
 
-let Throbber = React.createClass(Radium.wrap({
+export default React.createClass(Radium.wrap({
 
   displayName: 'Throbber',
 
@@ -18,6 +18,4 @@ let Throbber = React.createClass(Radium.wrap({
     );
   },
 
-}));
-
-module.exports = Throbber;
+}))

@@ -1,11 +1,9 @@
-let remote = global.require('remote');
+import remote from 'remote';
 
-let dispatcher = require('../dispatcher'),
-    DropAreaConstants = require('../constants/DropAreaConstants');
+import dispatcher from '../dispatcher';
+import { ActionTypes as DropAreaActionTypes } from '../constants/DropAreaConstants';
 
-let DropAreaActionTypes = DropAreaConstants.ActionTypes;
-
-let DropAreaAction = {
+export default {
 
   /**
    * @private
@@ -65,6 +63,4 @@ let DropAreaAction = {
     mainWindow.emit('upload-image-files');
   },
 
-};
-
-module.exports = DropAreaAction;
+}

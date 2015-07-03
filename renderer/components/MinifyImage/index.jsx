@@ -1,15 +1,15 @@
-let React = require('react'),
-    Radium = require('radium');
+import React from 'react';
+import Radium from 'radium';
 
-let DropArea = require('../DropArea'),
-    Throbber = require('../Throbber'),
-    MinifyImageAction = require('../../actions/MinifyImageAction'),
-    InitializeStore = require('../../stores/InitializeStore'),
-    OptimizeImageStore = require('../../stores/OptimizeImageStore');
+import DropArea from '../DropArea';
+import Throbber from '../Throbber';
+import MinifyImageAction from '../../actions/MinifyImageAction';
+import InitializeStore from '../../stores/InitializeStore';
+import OptimizeImageStore from '../../stores/OptimizeImageStore';
 
-let CSS = require('./css');
+import CSS from './css';
 
-let MinifyImage = React.createClass(Radium.wrap({
+export default React.createClass(Radium.wrap({
 
   beginProcess() {
     // show throbber
@@ -61,6 +61,4 @@ let MinifyImage = React.createClass(Radium.wrap({
     );
   },
 
-}));
-
-module.exports = MinifyImage;
+}))

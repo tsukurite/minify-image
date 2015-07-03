@@ -1,4 +1,4 @@
-let Radium = require('radium');
+import Radium from 'radium';
 
 let keyframes = Radium.keyframes({
   [`${(100 / 8) * 1}%`]: { transform: 'rotate(45deg)' },
@@ -11,7 +11,7 @@ let keyframes = Radium.keyframes({
   [`${(100 / 8) * 8}%`]: { transform: 'rotate(360deg)' },
 });
 
-module.exports = {
+export default {
 
   section: {
   },
@@ -36,4 +36,4 @@ module.exports = {
     top: 0,
   },
 
-};
+}

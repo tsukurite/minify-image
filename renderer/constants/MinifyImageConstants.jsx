@@ -1,7 +1,9 @@
-let keymirror = require('keymirror');
+import keymirror from 'keymirror';
 
-module.exports = {
+export default {
+
   ActionTypes: keymirror({
     INITIALIZE: null,
   }),
-};
+
+}
