@@ -1,21 +1,18 @@
 import React from 'react';
-import Radium from 'radium';
 
-import CSS from './css';
+import CSS from './css.scss';
 import RES from './res';
 
-export default React.createClass(Radium.wrap({
-
-  displayName: 'Throbber',
+export default class Throbber extends React.Component {
 
   render() {
     return (
-      <section>
-        <div style={CSS.div}>
-          <img style={CSS.img} src={RES.image.throbber} alt=""/>
+      <section className={CSS.section}>
+        <div>
+          <img src={RES.image.throbber} alt=""/>
         </div>
       </section>
     );
-  },
+  }
 
-}))
+}

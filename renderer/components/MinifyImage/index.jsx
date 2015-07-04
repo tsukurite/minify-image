@@ -1,5 +1,4 @@
 import React from 'react';
-import Radium from 'radium';
 
 import DropArea from '../DropArea';
 import Throbber from '../Throbber';
@@ -7,23 +6,31 @@ import MinifyImageAction from '../../actions/MinifyImageAction';
 import InitializeStore from '../../stores/InitializeStore';
 import OptimizeImageStore from '../../stores/OptimizeImageStore';
 
-import CSS from './css';
+import CSS from './css.scss';
 
-export default React.createClass(Radium.wrap({
+export default class MinifyImage extends React.Component {
 
-  beginProcess() {
+  state = {
+    isProcessing: false,
+  };
+
+  beginProcess = () => {
     // show throbber
     this.setState({ isProcessing: true });
-  },
+  };
 
-  endProcess() {
+  endProcess = () => {
     // hide throbber
     this.setState({ isProcessing: false });
-  },
+  };
+
+  renderThrobber = () => {
+    if (this.state.isProcessing) {
+      return (<Throbber/>);
+    }
+  };
 
   //----------------------------------------------------------------------------
-
-  displayName: 'MinifyImage',
 
   componentDidMount() {
     InitializeStore.addInitializingListener(this.beginProcess);
@@ -34,7 +41,7 @@ export default React.createClass(Radium.wrap({
 
     // trigger initialize
     MinifyImageAction.initialize();
-  },
+  }
 
   componentWillUnmount() {
     InitializeStore.removeInitializingListener(this.beginProcess);
@@ -42,23 +49,14 @@ export default React.createClass(Radium.wrap({
 
     OptimizeImageStore.removeProcessingListener(this.beginProcess);
     OptimizeImageStore.removeFinishListener(this.endProcess);
-  },
-
-  getInitialState() {
-    return {
-      isProcessing: false,
-    };
-  },
+  }
 
   render() {
     return (
-      <section style={CSS.section}>
-        <DropArea/>
-        {
-          this.state.isProcessing && <Throbber/>
-        }
+      <section className={CSS.section}>
+        <DropArea/> {this.renderThrobber()}
       </section>
     );
-  },
+  }
 
-}))
+}

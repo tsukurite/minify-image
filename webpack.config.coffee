@@ -12,7 +12,6 @@ module.exports =
       'keymirror'
       'ipc-promise'
       'object-assign'
-      'radium'
       'react'
     ]
 
@@ -24,8 +23,9 @@ module.exports =
 
   module:
     loaders: [
-      { test: /\.jsx$/, exclude: /bower_components|node_modules/, loader: 'babel?stage=0&blacklist[]=regenerator' }
-      { test: /\.png$/, exclude: /bower_components|node_modules/, loader: 'url' }
+      { test: /\.jsx$/,     exclude: /bower_components|node_modules/, loader: 'babel?stage=0&blacklist[]=regenerator' }
+      { test: /\.png$/,     exclude: /bower_components|node_modules/, loader: 'url' }
+      { test: /\.s[ac]ss$/, exclude: /bower_components|node_modules/, loader: 'style!css!sass' }
     ]
 
   externals: [
