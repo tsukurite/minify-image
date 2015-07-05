@@ -7,11 +7,9 @@ module.exports =
   entry:
     index: './renderer/index.jsx'
     bundle: [
-      'co'
       'flux'
       'keymirror'
       'ipc-promise'
-      'object-assign'
       'react'
     ]
 
