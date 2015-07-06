@@ -1,3 +1,6 @@
+// install sourcemap support
+require('source-map-support/register');
+
 // cd
 process.chdir(`${__dirname}/../`);
 
