@@ -6,6 +6,12 @@ let debug = require('debug'),
 let log = debug('main:optimize-image');
 
 /**
+ * optimize images.
+ *
+ * @param {String} src
+ * @param {String} dest
+ * @param {String} [filename]
+ * @return {Promise}
  */
 function optimizeImage(src, dest, filename) {
   log('optimizeImage', arguments);
