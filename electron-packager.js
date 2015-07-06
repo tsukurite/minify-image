@@ -202,6 +202,5 @@ co(function*() {
 }).then(function() {
   console.log('done');
 }).catch(function(err) {
-  console.error('error:');
   console.error(err.stack);
 });

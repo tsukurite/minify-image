@@ -27,7 +27,7 @@ function optimizeImage(src, dest, filename) {
     }
 
     imagemin.run(function(err, files) {
-      (err) ? reject({ err, stack: err.stack }) : resolve({ files });
+      (err) ? reject({ stack: err.stack }) : resolve({ files });
     });
   });
 }
